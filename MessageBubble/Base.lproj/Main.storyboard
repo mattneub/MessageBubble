@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="MessageBubble" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
+                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="EEV-Y9-Fif">
+                                <rect key="frame" x="26" y="149" width="221" height="142"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Four score and seven years ago, our fathers brought forth upon this continent a new nation" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="200" translatesAutoresizingMaskIntoConstraints="NO" id="jQS-mh-EYA">
+                                <rect key="frame" x="46" y="169" width="181" height="82"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bVM-kR-LHC">
+                                <rect key="frame" x="35" y="53" width="268" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="268" id="IKf-Ky-aK7"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="wRh-qq-8Fg"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter text and hit Return:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="keS-62-PcP">
+                                <rect key="frame" x="35" y="28" width="193" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="EEV-Y9-Fif" firstAttribute="trailing" secondItem="jQS-mh-EYA" secondAttribute="trailing" constant="20" id="7L8-Ug-Y9A"/>
+                            <constraint firstItem="keS-62-PcP" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" id="8su-Bj-tu7"/>
+                            <constraint firstItem="bVM-kR-LHC" firstAttribute="top" secondItem="keS-62-PcP" secondAttribute="bottom" constant="4" id="MGF-6G-R8d"/>
+                            <constraint firstItem="EEV-Y9-Fif" firstAttribute="top" secondItem="jQS-mh-EYA" secondAttribute="top" constant="-20" id="OkN-0i-t5v"/>
+                            <constraint firstItem="jQS-mh-EYA" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="30" id="S0L-Ei-dFr"/>
+                            <constraint firstItem="jQS-mh-EYA" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="149" id="gRq-Fk-4IX"/>
+                            <constraint firstItem="EEV-Y9-Fif" firstAttribute="bottom" secondItem="jQS-mh-EYA" secondAttribute="bottom" constant="40" id="hDm-gM-vkQ"/>
+                            <constraint firstItem="bVM-kR-LHC" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="19" id="nGQ-SN-0gI"/>
+                            <constraint firstItem="keS-62-PcP" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="19" id="rgR-f3-Yjm"/>
+                            <constraint firstItem="EEV-Y9-Fif" firstAttribute="leading" secondItem="jQS-mh-EYA" secondAttribute="leading" constant="-20" id="zVP-Yc-Vwq"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="iv" destination="EEV-Y9-Fif" id="MgP-gm-wfa"/>
+                        <outlet property="lab" destination="jQS-mh-EYA" id="mrH-FO-B5Z"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>
