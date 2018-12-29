@@ -15,6 +15,29 @@ The key points are:
 
 */
 
+extension CGRect {
+    init(_ x:CGFloat, _ y:CGFloat, _ w:CGFloat, _ h:CGFloat) {
+        self.init(x:x, y:y, width:w, height:h)
+    }
+}
+extension CGSize {
+    init(_ width:CGFloat, _ height:CGFloat) {
+        self.init(width:width, height:height)
+    }
+}
+extension CGPoint {
+    init(_ x:CGFloat, _ y:CGFloat) {
+        self.init(x:x, y:y)
+    }
+}
+extension CGVector {
+    init (_ dx:CGFloat, _ dy:CGFloat) {
+        self.init(dx:dx, dy:dy)
+    }
+}
+
+
+
 class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var iv: UIImageView!
     @IBOutlet weak var lab: UILabel!
@@ -22,24 +45,24 @@ class ViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        UIGraphicsBeginImageContextWithOptions(CGSizeMake(250,200), false, 0)
-        let con = UIGraphicsGetCurrentContext()
+        UIGraphicsBeginImageContextWithOptions(CGSize(250,200), false, 0)
+        let con = UIGraphicsGetCurrentContext()!
         
-        let p = UIBezierPath(roundedRect: CGRectMake(0,0,250,180), cornerRadius: 10)
-        p.moveToPoint(CGPointMake(20,180))
-        p.addLineToPoint(CGPointMake(20,200))
-        p.addLineToPoint(CGPointMake(30,180))
-        CGContextAddPath(con, p.CGPath)
-        UIColor.blueColor().setFill()
-        CGContextFillPath(con)
+        let p = UIBezierPath(roundedRect: CGRect(0,0,250,180), cornerRadius: 10)
+        p.move(to: CGPoint(20,180))
+        p.addLine(to: CGPoint(20,200))
+        p.addLine(to: CGPoint(30,180))
+        con.addPath(p.cgPath)
+        UIColor.blue.setFill()
+        con.fillPath()
         
-        let im = UIGraphicsGetImageFromCurrentImageContext()
-        let im2 = im.resizableImageWithCapInsets(UIEdgeInsetsMake(10, 35, 35, 10), resizingMode: .Stretch)
+        let im = UIGraphicsGetImageFromCurrentImageContext()!
+        let im2 = im.resizableImage(withCapInsets: UIEdgeInsets(top: 10, left: 35, bottom: 35, right: 10), resizingMode: .stretch)
         UIGraphicsEndImageContext()
         self.iv.image = im2
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.lab.text = textField.text
         textField.resignFirstResponder()
         return true
